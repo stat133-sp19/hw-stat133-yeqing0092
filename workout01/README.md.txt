@@ -1,1 +1,0 @@
-Analyze the data of Golden Sata Warrior Players.
