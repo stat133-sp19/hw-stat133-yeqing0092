@@ -1,0 +1,1 @@
+This is an analysis of shot data of five Golden State Warriors: Andre Iguodala, Graymond Green, Kevin Durant, Klay Thompson, Stephen Curry.
