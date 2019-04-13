@@ -1,0 +1,1 @@
+Using a shinp app to visualize some of the saving/investing scenatios.
