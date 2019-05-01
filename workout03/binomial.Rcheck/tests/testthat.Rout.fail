@@ -1,0 +1,46 @@
+
+R version 3.4.3 (2017-11-30) -- "Kite-Eating Tree"
+Copyright (C) 2017 The R Foundation for Statistical Computing
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> library(testthat)
+Warning message:
+package 'testthat' was built under R version 3.4.4 
+> library(binomial)
+> 
+> test_check("binomial")
+[31m--[39m [31m1. Error: the check_trials works with negative integ[39m
+could not find function "expect_euqal"
+1: .handleSimpleError(function (e) 
+   {
+       handled <<- TRUE
+       test_error <<- e
+       options(expressions = expressions_opt_new)
+       on.exit(options(expressions = expressions_opt), add = TRUE)
+       e$expectation_calls <- frame_calls(11, 2)
+       test_error <<- e
+       register_expectation(e)
+       e$handled <- TRUE
+       test_error <<- e
+   }, "could not find function \"expect_euqal\"", quote(expect_euqal(check_trials(-5), 
+       TRUE))) at testthat/test.checker.R:15
+2: eval(code, test_env)
+
+== testthat results  ==================================
+OK: 33 SKIPPED: 0 FAILED: 1
+1. Error: the check_trials works with negative integer (@test.checker.R#15) 
+
+Error: testthat unit tests failed
+Execution halted

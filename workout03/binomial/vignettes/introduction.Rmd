@@ -1,0 +1,160 @@
+---
+title: "Getting Started with binomial"
+author: "Yeqing Chen"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Introduction to cointoss}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+```{r, echo = FALSE, message = FALSE}
+knitr::opts_chunk$set(collapse = T, comment = "#>")
+library(binomial)
+library(ggplot2)
+```
+
+# Introduction to binomial
+
+The Binomial distribution is perhaps the most famous probability distribution among discrete
+random variables. This is the theoretical probability model that we use when calculating
+probabilities about the number of successes in a fixed number of random trials performed
+under identical conditions (assuming a constant probability of success on each trial).
+
+The formula of the binomial probability:
+
+
+$P_r(X = k) =({^n_k})p^k(1-p)^{n-k}$
+
+where:
+- n is the number of (fixed) trials $(n \geqslant 0)$
+
+- p is the probability of success on each trial $(0 \leqslant p \leqslant 1)$
+
+- 1-p is the probability of failure on each trial
+
+- k is a variable that represents the number of successes out of n trials $(0\leqslant k \leqslant n)$
+
+- the first term in parenthesis is NOT a fraction, it is the number of combinations in which k success can occur in n trials
+
+This document introduces you to binomial's basic set of tools, and shows you how to apply them to calculate binomial distribution.
+
+## 1. Calculates the number of combinations in which k successes can occur in n trials.
+
+
+for example, finding the number of combination in getting 3 heads in 4 tosses.
+
+```{r}
+bin_choose(n=4,k=3)
+```
+
+## 2. Calculates the probability in whick k successes can occur in n trials with a constant probability of success on each trial.
+
+
+for example, finding the probability of getting 3 heads in 4 tosses of a fair coin.
+
+```{r}
+bin_probability(success = 3,trials = 4,prob = 0.5)
+```
+
+
+## 3. obtain a data with the probability distribution.
+
+for example, the probability distribution for 4 tosses of a fair coin
+
+```{r}
+dis1 <- bin_distribution(trials = 4, prob = 0.5)
+dis1
+```
+
+
+Note: sucesses in the first column, probability in the second column.
+
+
+### 3.1 Plot the histogram of the probability distribution
+
+```{r}
+plot(dis1)
+```
+
+## 4 obtain a data with the cumulative probability distribution.
+
+for example, the cumulative probability distribution for 4 tosses of a fair coin.
+
+```{r}
+dis2 <- bin_cumulative(4,0.5)
+dis2
+```
+
+
+### 4.1 Plot the cumulative probability distribution
+
+```{r}
+plot(dis2)
+```
+
+
+## 5. list with named elements for binomial variables
+
+for example, the binomial distribution for 4 tosses of a fair coin
+
+```{r}
+bin1 <- bin_variable(trials = 4, prob = 0.5)
+bin1
+```
+
+
+### 5.1 list with named elements and summary for binomial variables
+
+
+```{r}
+binsum1 <- summary(bin1)
+binsum1
+```
+
+## 6 Calculate measures of binomial distribution
+
+for example, the binomial distribution for 4 tosses of a fair coin
+
+#### 6.1 mean
+
+The expected value or mean of a binomial distribution.
+
+```{r}
+bin_mean(4,0.5)
+```
+
+#### 6.2 variance
+
+The variance of a binomial distribution 
+
+```{r}
+bin_variance(4, 0.5)
+```
+
+#### 6.3 mode
+
+The most likely number of a binomial distribution
+
+```{r}
+bin_mode(4, 0.5)
+```
+
+
+#### 6.4 skewness
+
+Skewness is a measure of the asymmetry of the probability distribution of a random variable about its mean. 
+
+```{r}
+bin_skewness(4, 0.5)
+```
+
+#### 6.5 kurtosis
+
+The Kurtosis is a measure of the "tailedness" of the probability distribution of a random variable.
+
+```{r}
+bin_kurtosis(4, 0.5)
+```
+
+
