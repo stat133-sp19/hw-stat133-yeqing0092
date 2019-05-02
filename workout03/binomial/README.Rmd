@@ -14,11 +14,30 @@ knitr::opts_chunk$set(
   out.width = "100%"
 )
 ```
-# binomial
+# Introduction to binomial
 
-<!-- badges: start -->
-<!-- badges: end -->
+The Binomial distribution is perhaps the most famous probability distribution among discrete
+random variables. This is the theoretical probability model that we use when calculating
+probabilities about the number of successes in a fixed number of random trials performed
+under identical conditions (assuming a constant probability of success on each trial).
 
+The formula of the binomial probability:
+
+
+$P_r(X = k) =({^n_k})p^k(1-p)^{n-k}$
+
+where:
+- n is the number of (fixed) trials $(n \geqslant 0)$
+
+- p is the probability of success on each trial $(0 \leqslant p \leqslant 1)$
+
+- 1-p is the probability of failure on each trial
+
+- k is a variable that represents the number of successes out of n trials $(0\leqslant k \leqslant n)$
+
+- the first term in parenthesis is NOT a fraction, it is the number of combinations in which k success can occur in n trials
+
+This document introduces you to binomial's basic set of tools, and shows you how to apply them to calculate binomial distribution.
 
 ## Overview
 

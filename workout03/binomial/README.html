@@ -121,6 +121,20 @@ $(document).ready(function () {
 </div>
 
 
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+<div id="introduction-to-binomial" class="section level1">
+<h1>Introduction to binomial</h1>
+<p>The Binomial distribution is perhaps the most famous probability distribution among discrete random variables. This is the theoretical probability model that we use when calculating probabilities about the number of successes in a fixed number of random trials performed under identical conditions (assuming a constant probability of success on each trial).</p>
+<p>The formula of the binomial probability:</p>
+<p><span class="math inline">\(P_r(X = k) =({^n_k})p^k(1-p)^{n-k}\)</span></p>
+<p>where: - n is the number of (fixed) trials <span class="math inline">\((n \geqslant 0)\)</span></p>
+<ul>
+<li><p>p is the probability of success on each trial <span class="math inline">\((0 \leqslant p \leqslant 1)\)</span></p></li>
+<li><p>1-p is the probability of failure on each trial</p></li>
+<li><p>k is a variable that represents the number of successes out of n trials <span class="math inline">\((0\leqslant k \leqslant n)\)</span></p></li>
+<li><p>the first term in parenthesis is NOT a fraction, it is the number of combinations in which k success can occur in n trials</p></li>
+</ul>
+<p>This document introduces you to binomial’s basic set of tools, and shows you how to apply them to calculate binomial distribution.</p>
 <div id="overview" class="section level2">
 <h2>Overview</h2>
 <p><code>&quot;binomial&quot;</code> is a minimal <a href="http://www.r-project.org/">R</a> package that provides functions to simulate calculating binomial distribution.</p>
@@ -147,7 +161,7 @@ $(document).ready(function () {
 <div id="installation" class="section level2">
 <h2>Installation</h2>
 <p>Install the development version from GitHub via the package <code>&quot;devtools&quot;</code>:</p>
-<pre class="{r}"><code># development version from GitHub:
+<pre class="r"><code># development version from GitHub:
 #install.packages(&quot;devtools&quot;) 
 # install &quot;binomial&quot; (without vignettes)
 devtools::install_github(&quot;stat133-sp19/hw-stat133-yeqing0092/workout03/binomial&quot;)
@@ -156,50 +170,90 @@ devtools::install_github(&quot;stat133-sp19/hw-stat133-yeqing0092/workout03/bino
 </div>
 <div id="usage" class="section level2">
 <h2>Usage</h2>
-<pre class="{r}"><code>library(binomial)
+<pre class="r"><code>library(binomial)
 # Finding the number of combination in getting 3 heads in 4 tosses.
-&lt;bin_choose(n=4,k=3)&gt;
+bin_choose(n=4,k=3)
+#&gt; [1] 4
 
 # Calculates the probability of getting 3 heads in 4 tosses of a fair coin.
 bin_probability(success = 3,trials = 4,prob = 0.5)
+#&gt; [1] 0.25
 
 # the probability distribution for 4 tosses of a fair coin
 dis1 &lt;- bin_distribution(trials = 4, prob = 0.5)
 dis1
+#&gt;   success probability
+#&gt; 1       0      0.0625
+#&gt; 2       1      0.2500
+#&gt; 3       2      0.3750
+#&gt; 4       3      0.2500
+#&gt; 5       4      0.0625
 
 # Plot
 plot(dis1)
-
+#&gt; Warning: package 'ggplot2' was built under R version 3.4.4</code></pre>
+<p><img src="data:image/png;base64,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" width="100%" /></p>
+<pre class="r"><code>
 # The cumulative probability distribution for 4 tosses of a fair coin.
 dis2 &lt;- bin_cumulative(4,0.5)
 dis2
+#&gt;   success probability cumulative
+#&gt; 1       0      0.0625     0.0625
+#&gt; 2       1      0.2500     0.3125
+#&gt; 3       2      0.3750     0.6875
+#&gt; 4       3      0.2500     0.9375
+#&gt; 5       4      0.0625     1.0000
 
 # Plot
-plot(dis2)
-
+plot(dis2)</code></pre>
+<p><img src="data:image/png;base64,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" width="100%" /></p>
+<pre class="r"><code>
 # list with named elements binomial distribution for 4 tosses of a fair coin
 bin1 &lt;- bin_variable(trials = 4, prob = 0.5)
 bin1
+#&gt; &quot;Binomial variable&quot;
+#&gt; 
+#&gt; Parameters
+#&gt; - number of trials: 4 
+#&gt; - prob of success : 0.5
 
 # summary
 binsum1 &lt;- summary(bin1)
 binsum1
+#&gt; &quot;Summary Binomial&quot;
+#&gt; 
+#&gt; Parameters
+#&gt; - number of trials: 4 
+#&gt; - prob of success : 0.5 
+#&gt; 
+#&gt; Measures
+#&gt; - mean    : 2 
+#&gt; - variance: 1 
+#&gt; - mode    : 2 
+#&gt; - skewness: 0 
+#&gt; - kurtosis: -0.5
 
 
 #mean
 bin_mean(4,0.5)
+#&gt; [1] 2
 
 #variance
 bin_variance(4, 0.5)
+#&gt; [1] 1
 
 #mode
 bin_mode(4, 0.5)
+#&gt; [1] 2
 
 #skewness
 bin_skewness(4, 0.5)
+#&gt; [1] 0
 
 #kurtosis
-bin_kurtosis(4, 0.5)</code></pre>
+bin_kurtosis(4, 0.5)
+#&gt; [1] -0.5</code></pre>
+</div>
 </div>
 
 
