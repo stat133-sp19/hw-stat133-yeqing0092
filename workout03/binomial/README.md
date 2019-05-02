@@ -7,15 +7,15 @@ The Binomial distribution is perhaps the most famous probability distribution am
 
 The formula of the binomial probability:
 
-$P_r(X = k) =({^n_k})p^k(1-p)^{n-k}$
+*P*<sub>*r*</sub>(*X* = *k*)=(**<sub>*k*</sub><sup>*n*</sup>)*p*<sup>*k*</sup>(1 − *p*)<sup>*n* − *k*</sup>
 
-where: - n is the number of (fixed) trials $(n \geqslant 0)$
+where: - n is the number of (fixed) trials (*n* ≥ 0)
 
--   p is the probability of success on each trial $(0 \leqslant p \leqslant 1)$
+-   p is the probability of success on each trial (0 ≤ *p* ≤ 1)
 
 -   1-p is the probability of failure on each trial
 
--   k is a variable that represents the number of successes out of n trials $(0\leqslant k \leqslant n)$
+-   k is a variable that represents the number of successes out of n trials (0 ≤ *k* ≤ *n*)
 
 -   the first term in parenthesis is NOT a fraction, it is the number of combinations in which k success can occur in n trials
 
